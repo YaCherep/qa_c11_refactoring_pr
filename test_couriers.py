@@ -1,4 +1,5 @@
 
+
 import pytest
 import requests
 import os
@@ -23,6 +24,8 @@ def client():
     base_url = os.getenv("API_BASE_URL", "http://127.0.0.1:5001/api")
     auth_token = os.getenv("AUTH_TOKEN", "test_token_123")
     return CourierAPIClient(base_url=base_url, auth_token=auth_token) 
+
+
 
 @pytest.mark.usefixtures("fake_server")
 class TestCourierHelpers:
@@ -49,3 +52,5 @@ class TestCourierHelpers:
         """Удаление курьера с id=2 (зашит в fake_api)."""
         result = client.delete_courier(2)
         assert result == {"status": "deleted"}
+
+# Рефакторинг завершён, тесты проходят

@@ -1,10 +1,12 @@
+
 """
+
 Fake-сервер, имитирующий API сервиса курьеров.
 Автоматически поднимается при запуске тестов через conftest.py.
 Не менять этот файл.
+
 """
 from flask import Flask, request, jsonify
-
 app = Flask(__name__)
 
 _couriers = {
